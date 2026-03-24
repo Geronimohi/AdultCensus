@@ -11,6 +11,16 @@ df = load_data()
 
 st.title("Income Inequality Dashboard")
 
+st.subheader("Overall Income Distribution")
+
+income_counts = filtered_df["income"].value_counts()
+
+fig, ax = plt.subplots()
+ax.pie(income_counts, labels=income_counts.index, autopct="%1.1f%%", startangle=90)
+ax.set_title("Overall Income Distribution")
+
+st.pyplot(fig)
+
 st.subheader("Key Metrics")
 
 total = len(df)
